@@ -1,0 +1,31 @@
+from selene import browser, have
+from data.users import User
+
+
+
+class AuthorizationPage:
+
+    def open(self):
+        browser.open('')
+
+    def account_button(self):
+        browser.element('.ut2-top-my-account.ty-float-right div.ty-dropdown-box__title').click()
+
+    def authorization_button(self):
+        browser.element('.cm-dialog-auto-size.ty-btn.ty-btn__secondary').click()
+
+    def fill_in_valid_user_data(self, user):
+        browser.element('#login_popup122').type(user.user_email)
+        browser.element('#psw_popup122').type(user.user_password)
+
+    def submit(self):
+        browser.element('.ty-btn__login.ty-btn__secondary.ty-btn span:nth-child(1)').click()
+
+    def logged_account_button(self):
+        browser.element('.ut2-top-my-account.ty-float-right div.ty-dropdown-box').click()
+
+    def check_for_successful_authorization(self, users: User):
+        browser.element('.ty-account-info__name').should(have.texts(
+            f'{users.user_first_name} {users.user_last_name}'
+        ))
+
