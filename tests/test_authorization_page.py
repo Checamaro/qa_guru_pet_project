@@ -1,7 +1,7 @@
 from pages.authorization_page import AuthorizationPage
 import allure
 from allure_commons.types import Severity
-from data.users import User, Username
+from data.users import User
 
 
 @allure.tag('web')
@@ -13,12 +13,11 @@ from data.users import User, Username
 def test_successful_authorization():
     Polygraf = User(
         user_email='788test567@gmail.com',
-        user_password='qwerty123456'
-    )
-    Name = Username(
+        user_password='qwerty123456',
         user_first_name='Полиграф',
         user_last_name='Шариков'
     )
+
 
     authorization_page = AuthorizationPage()
     with allure.step('Open main page'):
@@ -34,4 +33,4 @@ def test_successful_authorization():
     with allure.step('Click logged account button'):
         authorization_page.logged_account_button()
     with allure.step('Checking for successful authorization'):
-        authorization_page.check_for_successful_authorization(Name)
+        authorization_page.check_for_successful_authorization(Polygraf)

@@ -1,6 +1,4 @@
 from selene import browser, have
-from data.users import User
-
 
 
 class CartPage:

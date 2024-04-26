@@ -1,6 +1,4 @@
 from selene import browser, have
-from data.users import User
-
 
 
 class CatalogPage:
@@ -10,6 +8,9 @@ class CatalogPage:
 
     def catalog_button_click(self):
         browser.element('.ty-dropdown-box.top-menu-grid-vetrtical div.ty-dropdown-box__title.cm-combination').click()
+
+    def catalog_battery_instrument_click(self):
+        browser.element('.cm-menu-item-responsive.first-lvl:nth-child(4)').click()
 
     def catalog_electric_instrument_click(self):
         browser.element('.first-lvl:nth-child(3) a.ty-menu__item-link.a-first-lvl span.menu-lvl-ctn span:nth-child(2) > span.v-center').click()

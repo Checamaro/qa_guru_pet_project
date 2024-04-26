@@ -1,7 +1,5 @@
-import selene
 from selene import browser, have
-import data
-from selenium import webdriver
+
 
 
 class WishPage:
