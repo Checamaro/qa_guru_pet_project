@@ -1,6 +1,5 @@
 from selene import browser, have
-from data.users import User
-
+from data.users import User, Username
 
 
 class AuthorizationPage:
@@ -24,8 +23,7 @@ class AuthorizationPage:
     def logged_account_button(self):
         browser.element('.ut2-top-my-account.ty-float-right div.ty-dropdown-box').click()
 
-    def check_for_successful_authorization(self, users: User):
+    def check_for_successful_authorization(self, users):
         browser.element('.ty-account-info__name').should(have.texts(
             f'{users.user_first_name} {users.user_last_name}'
         ))
-

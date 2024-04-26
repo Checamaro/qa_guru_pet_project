@@ -3,6 +3,7 @@ import allure
 from allure_commons.types import Severity
 from data.users import User, Username
 
+
 @allure.tag('web')
 @allure.title('Successfully authorized user')
 @allure.severity(Severity.CRITICAL)
