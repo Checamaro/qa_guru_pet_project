@@ -12,4 +12,4 @@ class MainPage:
 
     def check_for_personal_account_button(self):
         browser.element('.ut2-top-my-account.ty-float-right div.ty-dropdown-box__title').should(
-            have.text('Отложенные товары'))
+            have.text('Аккаунт'))

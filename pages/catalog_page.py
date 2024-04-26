@@ -26,6 +26,11 @@ class CatalogPage:
     def click_sort_by_price_from_cheap_button(self):
         browser.element('.sort-by-price-asc.ty-sort-dropdown__content-item').click()
 
+    def check_correct_sorting(self):
+        first_price = browser.element('#sec_discounted_price_47218').should(have.text('1 190)'))
+        second_price = browser.element('#sec_discounted_price_53856').should(have.text('1 200'))
+        assert int(first_price) <= int(second_price)
+
     def catalog_electric_instrument_wrench_makita_add_to_cart(self):
         browser.element('.icon_button div.cm-reload-45264:nth-child(1) button').click()
 
