@@ -5,10 +5,10 @@ from allure_commons.types import Severity
 
 
 @allure.tag('web')
-@allure.title('Successfully authorized user')
+@allure.title('Successfully added to cart product')
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "checamaro")
-@allure.feature("Authorization page")
+@allure.feature("Cart check")
 @allure.link("'https://planetainstrument.ru/'", name="Testing")
 def test_add_to_cart_product():
     catalog_page = CatalogPage()
