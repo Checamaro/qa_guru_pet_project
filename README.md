@@ -1,4 +1,4 @@
-<h1>Some automated tests for <i>[rabota.by](https://planetainstrument.ru/)</i> website</h1>
+<h1>Some automated tests for <i>planetainstrument.ru</i> website</h1>
 
 ---
 
