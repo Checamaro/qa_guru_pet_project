@@ -70,10 +70,5 @@
 
 ---
 
-<h2 id="test-example"><img width="40" align="center" src="img/example.png" alt="exapmle">Example of adding product to cart test</h2>
-<img src="img/test-example.gif" alt="test">
-
----
-
 <h2 id="telegram-notification"><img width="40" align="center" src="img/notification.png" alt="exapmle">Telegram notifications</h2>
 <img src="img/report-telegram.png" alt="report-telegram">
