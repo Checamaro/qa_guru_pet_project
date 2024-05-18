@@ -1,16 +1,18 @@
+from pages.main_page import main_page
 import allure
 from allure_commons.types import Severity
-from pages.main_page import main_page
 
 
 @allure.tag('web')
-@allure.title('Successfully opened main page')
+@allure.title('Successfully work of top button')
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "checamaro")
 @allure.feature("Main Page")
 @allure.link("'https://planetainstrument.ru/'", name="Testing")
-def test_main_page_elements():
+def test_return_to_the_top_button():
     main_page.open()
 
-    main_page.check_for_catalog()
-    main_page.check_for_personal_account_button()
+    main_page.scroll_down()
+    main_page.click_top_button()
+
+    main_page.check_for_go_up()

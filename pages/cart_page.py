@@ -1,4 +1,5 @@
 from selene import browser, have
+import allure
 
 
 class CartPage:
@@ -7,9 +8,13 @@ class CartPage:
         browser.open('')
 
     def cart_button_click(self):
-        browser.element('.ut2-top-cart-content').click()
-
+        with allure.step('Click cart'):
+            browser.element('.ut2-top-cart-content').click()
 
     def get_cart_wrench_name(self):
-        browser.element('.ty-cart-items__list-item div.ty-cart-items__list-item-desc > a:nth-child(1)').should(have.text('Гайковерт ударный MAKITA TD0101F'))
+        with allure.step('Get wrench name in cart'):
+            browser.element('.ty-cart-items__list-item').should(
+                have.text('Гайковерт ударный MAKITA TD0101F'))
 
+
+cart_page = CartPage()

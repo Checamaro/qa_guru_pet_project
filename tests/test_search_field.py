@@ -1,10 +1,10 @@
+from pages.main_page import main_page
 import allure
 from allure_commons.types import Severity
-from pages.main_page import main_page
 
 
 @allure.tag('web')
-@allure.title('Successfully opened main page')
+@allure.title('Successfully working of search field')
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "checamaro")
 @allure.feature("Main Page")
@@ -12,5 +12,6 @@ from pages.main_page import main_page
 def test_main_page_elements():
     main_page.open()
 
-    main_page.check_for_catalog()
-    main_page.check_for_personal_account_button()
+    main_page.using_search_field()
+
+    main_page.check_search_results()

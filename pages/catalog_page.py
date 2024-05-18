@@ -1,41 +1,57 @@
 from selene import browser, have
+import allure
 
 
 class CatalogPage:
 
     def open(self):
-        browser.open('')
+        with allure.step('Open main page'):
+            browser.open('')
 
     def catalog_button_click(self):
-        browser.element('.ty-dropdown-box.top-menu-grid-vetrtical div.ty-dropdown-box__title.cm-combination').click()
+        with allure.step('Open catalog'):
+            browser.element(
+                '.top-menu-grid-vetrtical').click()
 
     def catalog_battery_instrument_click(self):
-        browser.element('.cm-menu-item-responsive.first-lvl:nth-child(4)').click()
+        browser.element('.first-lvl:nth-child(4)').click()
 
     def catalog_electric_instrument_click(self):
-        browser.element('.first-lvl:nth-child(3) a.ty-menu__item-link.a-first-lvl span.menu-lvl-ctn span:nth-child(2) > span.v-center').click()
+        with allure.step('Choose electric instrument'):
+            browser.element(
+                '.first-lvl:nth-child(3)').click()
+
     def catalog_electric_instrument_wrench_click(self):
-        browser.element('.level-0:nth-child(1) a:nth-child(1)').click()
+        with allure.step('Choose wrench'):
+            browser.element('.level-0:nth-child(1) a:nth-child(1)').click()
 
     def get_catalog_wrench_makita_name(self):
-        browser.element('.grid-list div:nth-child(1) div.ty-column4:nth-child(4)').should(have.text('Гайковерт ударный MAKITA TD0101F'))
+        with allure.step('Get wrench catalog name'):
+            wrench_cat = browser.element('.cat-view-grid')
+            wrench_cat.should(have.text('Гайковерт ударный MAKITA TD0101F'))
 
-    def click_sort_button(self):
-        browser.element('.ty-sort-dropdown:nth-child(1) a.ty-sort-dropdown__wrapper').click()
-
-    def click_sort_by_price_from_cheap_button(self):
-        browser.element('.sort-by-price-asc.ty-sort-dropdown__content-item').click()
-
-    def check_correct_sorting(self):
-        first_price = browser.element('#sec_discounted_price_47218').should(have.text('1 190'))
-        f_p = first_price.replace(" ","")
-        second_price = browser.element('#sec_discounted_price_53856').should(have.text('1 200'))
-        s_p = second_price.replace(" ","")
-        assert int(f_p) <= int(s_p)
+    # def click_sort_button(self):
+    #     browser.element('.ty-sort-dropdown:nth-child(1) a.ty-sort-dropdown__wrapper').click()
+    #
+    # def click_sort_by_price_from_cheap_button(self):
+    #     with allure.step('Click sorting by increasing price'):
+    #         browser.element('.sort-by-price-asc.ty-sort-dropdown__content-item').click()
+    #
+    # def check_correct_sorting(self):
+    #     first_price = browser.element('#sec_discounted_price_47218').should(have.text('1 190'))
+    #     f_p = first_price.replace(" ", "")
+    #     second_price = browser.element('#sec_discounted_price_53856').should(have.text('1 200'))
+    #     s_p = second_price.replace(" ", "")
+    #     assert int(f_p) <= int(s_p)
 
     def catalog_electric_instrument_wrench_makita_add_to_cart(self):
-        browser.element('.icon_button div.cm-reload-45264:nth-child(1) button').click()
+        with allure.step('Choose Makita wrench'):
+            browser.element('.icon_button div.cm-reload-45264:nth-child(1) button').click()
 
     def close_cart_announcement(self):
-        browser.element('.notification-content-extended.cm-auto-hide:nth-child(43) h1:nth-child(1) > span.cm-notification-close.close').click()
+        with allure.step('Close cart announcement'):
+            browser.element(
+                '.notification-content-extended.cm-auto-hide:nth-child(43) h1:nth-child(1) > span.cm-notification-close.close').click()
 
+
+catalog_page = CatalogPage()
