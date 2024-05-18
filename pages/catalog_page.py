@@ -31,7 +31,7 @@ class CatalogPage:
             wrench_cat.should(have.text('Гайковерт ударный MAKITA TD0101F'))
 
     def click_sort_button(self):
-        browser.element('.ty-sort-dropdown:nth-child(1) a.ty-sort-dropdown__wrapper').click()
+        browser.element('.ty-sort-dropdown:nth-child(1) a.ty-sort-dropdown__wrapper.ty-sort-dropdown:nth-child(1) a.ty-sort-dropdown__wrapper').click()
 
     def click_sort_by_price_from_cheap_button(self):
         with allure.step('Click sorting by increasing price'):
