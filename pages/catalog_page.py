@@ -31,11 +31,11 @@ class CatalogPage:
             wrench_cat.should(have.text('Гайковерт ударный MAKITA TD0101F'))
 
     def click_sort_button(self):
-        browser.element('.ty-sort-dropdown:nth-child(1) a.ty-sort-dropdown__wrapper.ty-sort-dropdown:nth-child(1) a.ty-sort-dropdown__wrapper').click()
+        browser.element('#sw_elm_sort_fields').click()
 
     def click_sort_by_price_from_cheap_button(self):
         with allure.step('Click sorting by increasing price'):
-            browser.element('.sort-by-price-asc.ty-sort-dropdown__content-item').click()
+            browser.element('.sort-by-price-asc').click()
 
     def catalog_electric_instrument_wrench_makita_add_to_cart(self):
         with allure.step('Choose Makita wrench'):
